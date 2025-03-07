@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongo-2:
+    container_name: "mongo-2-container"
+    # network_mode: host
+    image: 'mongo:8.0'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    volumes:
+      - 'mongo2data:/data/db'
+      - 'mongo2config:/data/configdb'
+      - './data/shared:/data/shared'
+    ports:
+      - "27018:27017"  # Expose container port 27017 on host port 27018
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017", "--keyFile", "/data/shared/keyfile.key"]
+    restart: unless-stopped
+    user: "mongodb:mongodb" #In order to be able to access Keyfile
+
+volumes:
+  mongo2data:
+  mongo2config:
