@@ -2,25 +2,6 @@
 
 This repository provides configurations for deploying a MongoDB Replica Set both **locally** using Docker Compose and on a **server** setup with multiple hosts.
 
-## Repository Structure
-
-```
-/
-|-- local/          # Local deployment setup
-|   |-- docker-compose-mongo1.yml
-|   |-- docker-compose-mongo2.yml
-|   |-- docker-compose-mongo3.yml
-|   |-- initReplicaSet.js
-|   |-- README.md  # Instructions for local setup
-|
-|-- server/         # Server deployment setup
-|   |-- docker-compose-mongo1.yml
-|   |-- docker-compose-mongo2.yml
-|   |-- docker-compose-mongo3.yml
-|   |-- initReplicaSet.js
-|   |-- README.md  # Instructions for server setup
-```
-
 ## 1. Prerequisites
 
 - **Local Setup:** Requires Docker, Docker Compose, and OpenSSL (for keyfile generation).
